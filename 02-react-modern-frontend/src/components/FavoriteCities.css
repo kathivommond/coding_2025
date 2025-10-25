@@ -1,19 +1,59 @@
 .favorite-cities {
-  background: #ffffff;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #ffdde1 100%);
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(255, 105, 180, 0.3);
   height: fit-content;
   min-height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.favorite-cities::before {
+  content: '💖 ❤️ 💕 💗 💓 💖 ❤️ 💕';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  font-size: 1.5rem;
+  opacity: 0.3;
+  text-align: center;
+  animation: floatHearts 20s linear infinite;
+  pointer-events: none;
+}
+
+.favorite-cities::after {
+  content: '💗 💓 💖 ❤️ 💕 💗 💓 💖';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  font-size: 1.5rem;
+  opacity: 0.3;
+  text-align: center;
+  animation: floatHearts 25s linear infinite reverse;
+  pointer-events: none;
+}
+
+@keyframes floatHearts {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50px);
+  }
 }
 
 .favorite-cities-title {
   font-size: 1.25rem;
-  font-weight: 600;
-  color: #333333;
+  font-weight: 700;
+  color: #d6336c;
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid #f0f0f0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  text-shadow: 0 2px 4px rgba(255, 105, 180, 0.2);
+  position: relative;
+  z-index: 1;
 }
 
 .favorite-cities-empty {
@@ -23,7 +63,9 @@
   justify-content: center;
   text-align: center;
   padding: 2rem 1rem;
-  color: #999999;
+  color: #d6336c;
+  position: relative;
+  z-index: 1;
 }
 
 .favorite-cities-empty-emoji {
@@ -45,15 +87,16 @@
 
 .favorite-cities-empty p {
   font-size: 1rem;
-  font-weight: 500;
-  color: #666666;
+  font-weight: 600;
+  color: #d6336c;
   margin: 0 0 0.5rem 0;
 }
 
 .favorite-cities-hint {
   font-size: 0.875rem;
-  color: #999999;
+  color: #ff6b9d;
   display: block;
   max-width: 200px;
+  font-weight: 500;
 }
 

@@ -3,6 +3,7 @@ import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import WeatherDisplay, { WeatherData } from './components/WeatherDisplay';
 import FavoriteCities from './components/FavoriteCities';
+import { getMockWeatherData, getRandomWeatherData } from './data/mockWeatherData';
 import './App.css';
 
 const App = () => {
@@ -10,18 +11,20 @@ const App = () => {
 
   const handleSearch = (city: string) => {
     console.log('Searching for:', city);
-    // Weather search functionality will be implemented later
-    // For now, here's mock data to demonstrate the card design
-    setWeatherData({
-      city: city,
-      country: 'Demo',
-      temperature: 22,
-      feelsLike: 20,
-      description: 'partly cloudy',
-      humidity: 65,
-      windSpeed: 3.5,
-      icon: '02d'
-    });
+    
+    // Try to get specific mock data for known cities
+    const mockData = getMockWeatherData(city);
+    
+    if (mockData) {
+      // Use predefined mock data for known cities
+      setWeatherData(mockData);
+      console.log(`✨ Loaded mock data for ${city}`);
+    } else {
+      // Generate random weather data for unknown cities
+      const randomData = getRandomWeatherData(city);
+      setWeatherData(randomData);
+      console.log(`🎲 Generated random weather for ${city}`);
+    }
   };
 
   return (

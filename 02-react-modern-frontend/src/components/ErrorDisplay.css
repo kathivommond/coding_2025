@@ -35,10 +35,11 @@
   }
 }
 
-.error-icon {
-  font-size: 5rem;
+.error-icon-svg {
+  color: #d6336c;
   margin-bottom: 1.5rem;
   animation: shake 0.5s ease-in-out;
+  filter: drop-shadow(0 4px 8px rgba(214, 51, 108, 0.3));
 }
 
 @keyframes shake {
@@ -84,6 +85,14 @@
   font-weight: 500;
   max-width: 500px;
   line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hint-icon {
+  flex-shrink: 0;
+  color: #ff6b9d;
 }
 
 .error-retry-button {
@@ -105,6 +114,7 @@
 .retry-icon {
   display: inline-block;
   animation: rotateRetry 2s linear infinite;
+  margin-right: 0.5rem;
 }
 
 @keyframes rotateRetry {
@@ -122,7 +132,7 @@
 }
 
 .error-retry-button:hover .retry-icon {
-  animation: rotateRetry 0.6s linear infinite;
+  animation: rotateRetry 0.5s linear infinite;
 }
 
 .error-retry-button:active {

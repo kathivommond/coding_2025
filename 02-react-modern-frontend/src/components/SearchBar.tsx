@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Sparkles } from 'lucide-react';
 import './SearchBar.css';
 
 interface SearchBarProps {
@@ -31,7 +32,7 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
         aria-label="City search"
       />
       <button type="submit" className="search-button" aria-label="Search">
-        <span className="search-button-emoji">✨</span>
+        <Sparkles className="search-button-icon" size={20} />
       </button>
     </form>
   );

@@ -305,11 +305,9 @@
 }
 
 .heart-icon {
-  font-size: 2.5rem;
   transition: all 0.3s ease;
-  display: inline-block !important;
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
-  line-height: 1;
+  color: #ff69b4;
 }
 
 .favorite-button.is-favorite .heart-icon {
@@ -443,22 +441,54 @@
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-.weather-detail-emoji {
-  font-size: 2rem;
+.weather-detail-icon {
+  color: #ffffff;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
   flex-shrink: 0;
-  animation: wiggle 3s ease-in-out infinite;
 }
 
-@keyframes wiggle {
+/* Icon-specific animations */
+.icon-thermometer {
+  animation: thermometerPulse 3s ease-in-out infinite;
+}
+
+.icon-droplets {
+  animation: dropletBounce 2s ease-in-out infinite;
+}
+
+.icon-wind {
+  animation: windSway 3s ease-in-out infinite;
+}
+
+@keyframes thermometerPulse {
   0%, 100% {
-    transform: rotate(0deg);
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes dropletBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes windSway {
+  0%, 100% {
+    transform: translateX(0) rotate(0deg);
   }
   25% {
-    transform: rotate(-10deg);
+    transform: translateX(-3px) rotate(-5deg);
   }
   75% {
-    transform: rotate(10deg);
+    transform: translateX(3px) rotate(5deg);
   }
 }
 

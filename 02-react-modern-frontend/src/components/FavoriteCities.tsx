@@ -1,3 +1,4 @@
+import { X } from 'lucide-react';
 import './FavoriteCities.css';
 
 interface FavoriteCity {
@@ -41,7 +42,7 @@ const FavoriteCities = ({ favorites, onSelectCity, onRemoveCity }: FavoriteCitie
                 }}
                 aria-label="Remove from favorites"
               >
-                ✕
+                <X size={16} strokeWidth={3} />
               </button>
             </li>
           ))}

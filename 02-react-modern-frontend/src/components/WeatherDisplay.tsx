@@ -1,3 +1,4 @@
+import { Thermometer, Droplets, Wind, Heart } from 'lucide-react';
 import './WeatherDisplay.css';
 
 export interface WeatherData {
@@ -72,7 +73,12 @@ const WeatherDisplay = ({ weatherData, onToggleFavorite, isFavorite = false }: W
         aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
         title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
       >
-        <span className="heart-icon">{isFavorite ? '💖' : '🤍'}</span>
+        <Heart 
+          className="heart-icon" 
+          size={32}
+          fill={isFavorite ? '#ff69b4' : 'none'}
+          strokeWidth={2.5}
+        />
       </button>
 
       <div className="weather-card-header">
@@ -97,7 +103,7 @@ const WeatherDisplay = ({ weatherData, onToggleFavorite, isFavorite = false }: W
 
       <div className="weather-details">
         <div className="weather-detail-item">
-          <span className="weather-detail-emoji">🌡️</span>
+          <Thermometer className="weather-detail-icon icon-thermometer" size={32} strokeWidth={2} />
           <div className="weather-detail-content">
             <span className="weather-detail-label">Feels Like</span>
             <span className="weather-detail-value">{Math.round(feelsLike)}°C</span>
@@ -105,7 +111,7 @@ const WeatherDisplay = ({ weatherData, onToggleFavorite, isFavorite = false }: W
         </div>
 
         <div className="weather-detail-item">
-          <span className="weather-detail-emoji">💧</span>
+          <Droplets className="weather-detail-icon icon-droplets" size={32} strokeWidth={2} />
           <div className="weather-detail-content">
             <span className="weather-detail-label">Humidity</span>
             <span className="weather-detail-value">{humidity}%</span>
@@ -113,7 +119,7 @@ const WeatherDisplay = ({ weatherData, onToggleFavorite, isFavorite = false }: W
         </div>
 
         <div className="weather-detail-item">
-          <span className="weather-detail-emoji">💨</span>
+          <Wind className="weather-detail-icon icon-wind" size={32} strokeWidth={2} />
           <div className="weather-detail-content">
             <span className="weather-detail-label">Wind Speed</span>
             <span className="weather-detail-value">{windSpeed} m/s</span>

@@ -3,11 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Fundamentals Project</title>
+    <title>My Task Manager</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Your HTML content will go here -->
+    <header class="app-header">
+        <div class="container">
+            <h1 class="app-title">My Task Manager</h1>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <div class="container">
+            <section class="task-input" aria-labelledby="task-input-heading">
+                <h2 id="task-input-heading" class="visually-hidden">Add a new task</h2>
+                <form id="task-form" class="task-form" novalidate>
+                    <div class="form-row">
+                        <label for="task-title" class="form-label">Task Title</label>
+                        <input id="task-title" name="title" type="text" class="form-input" placeholder="e.g., Buy groceries" required aria-required="true">
+                    </div>
+                    <div class="form-row">
+                        <label for="task-details" class="form-label">Details</label>
+                        <textarea id="task-details" name="details" class="form-textarea" rows="4" placeholder="Add optional details (e.g., items, notes)"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="add-task-button">Add Task</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="task-controls" aria-label="Task filters">
+                <div class="filters" role="tablist" aria-label="Task Filters">
+                    <button type="button" class="filter-button is-active" id="filter-all" data-filter="all" role="tab" aria-selected="true">All</button>
+                    <button type="button" class="filter-button" id="filter-active" data-filter="active" role="tab" aria-selected="false">Active</button>
+                    <button type="button" class="filter-button" id="filter-completed" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+                </div>
+            </section>
+
+            <section class="tasks" aria-labelledby="tasks-heading">
+                <h2 id="tasks-heading" class="visually-hidden">Tasks</h2>
+                <ul id="task-list" class="task-list" aria-live="polite" aria-relevant="additions removals">
+                    <!-- Tasks will be rendered here -->
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <div class="container">
+            <p class="footer-text">Built by Kaamo</p>
+        </div>
+    </footer>
 
     <script src="js/script.js"></script>
 </body>

@@ -13,9 +13,11 @@ export interface WeatherData {
 
 interface WeatherDisplayProps {
   weatherData?: WeatherData;
+  onToggleFavorite?: (city: string, country: string) => void;
+  isFavorite?: boolean;
 }
 
-const WeatherDisplay = ({ weatherData }: WeatherDisplayProps) => {
+const WeatherDisplay = ({ weatherData, onToggleFavorite, isFavorite = false }: WeatherDisplayProps) => {
   if (!weatherData) {
     return (
       <div className="weather-display weather-placeholder-container">
@@ -30,8 +32,49 @@ const WeatherDisplay = ({ weatherData }: WeatherDisplayProps) => {
 
   const { city, country, temperature, feelsLike, description, humidity, windSpeed, icon } = weatherData;
 
+  // Determine which bear to show based on temperature
+  const getBearCharacter = () => {
+    if (temperature <= 15) {
+      return {
+        emoji: '🐻‍❄️',
+        accessories: '🧣🎩',
+        text: 'Brrr! Bundle up!',
+        className: 'cold-bear'
+      };
+    } else if (temperature >= 20) {
+      return {
+        emoji: '🐻',
+        accessories: '😎🍦',
+        text: 'Stay cool!',
+        className: 'warm-bear'
+      };
+    }
+    return null;
+  };
+
+  const bear = getBearCharacter();
+
   return (
     <div className="weather-display weather-card">
+      {bear && (
+        <div className={`weather-bear ${bear.className}`}>
+          <div className="bear-character">
+            <span className="bear-emoji">{bear.emoji}</span>
+            <span className="bear-accessories">{bear.accessories}</span>
+          </div>
+          <div className="bear-text">{bear.text}</div>
+        </div>
+      )}
+
+      <button
+        className={`favorite-button ${isFavorite ? 'is-favorite' : ''}`}
+        onClick={() => onToggleFavorite && onToggleFavorite(city, country)}
+        aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+        title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+      >
+        <span className="heart-icon">{isFavorite ? '💖' : '🤍'}</span>
+      </button>
+
       <div className="weather-card-header">
         <h2 className="weather-location">
           {city}, {country}

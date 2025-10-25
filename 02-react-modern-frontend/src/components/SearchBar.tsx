@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './SearchBar.css';
 
 interface SearchBarProps {
-  onSearch: (city: string) => void;
+  onSearch: (city: string) => void | Promise<void>;
 }
 
 const SearchBar = ({ onSearch }: SearchBarProps) => {

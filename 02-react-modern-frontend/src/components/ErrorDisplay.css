@@ -1,0 +1,130 @@
+.error-container {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #ffdde1 100%);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  min-height: 500px;
+  box-shadow: 
+    0 20px 60px rgba(255, 82, 82, 0.15),
+    0 8px 20px rgba(255, 82, 82, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.error-icon {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
+
+.error-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #d6336c;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(214, 51, 108, 0.2);
+}
+
+.error-message {
+  font-size: 1.1rem;
+  color: #ff6b9d;
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.error-hints {
+  margin-bottom: 1.5rem;
+}
+
+.error-hint {
+  font-size: 0.95rem;
+  color: #d6336c;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  margin: 0.5rem 0 0 0;
+  font-weight: 500;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+.error-retry-button {
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.retry-icon {
+  display: inline-block;
+  animation: rotateRetry 2s linear infinite;
+}
+
+@keyframes rotateRetry {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-retry-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.error-retry-button:hover .retry-icon {
+  animation: rotateRetry 0.6s linear infinite;
+}
+
+.error-retry-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .error-container {
+    padding: 2rem 1.5rem;
+    min-height: 400px;
+  }
+
+  .error-icon {
+    font-size: 4rem;
+  }
+
+  .error-title {
+    font-size: 1.5rem;
+  }
+
+  .error-message {
+    font-size: 1rem;
+  }
+}
+

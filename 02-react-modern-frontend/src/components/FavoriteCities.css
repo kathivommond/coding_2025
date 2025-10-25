@@ -96,7 +96,90 @@
   font-size: 0.875rem;
   color: #ff6b9d;
   display: block;
-  max-width: 200px;
+  max-width: 240px;
   font-weight: 500;
+}
+
+/* Favorite Cities List */
+.favorite-cities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.favorite-city-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.favorite-city-item:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: translateX(5px);
+}
+
+.favorite-city-button {
+  flex: 1;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.favorite-city-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #d6336c;
+}
+
+.favorite-city-country {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #ff6b9d;
+}
+
+.remove-favorite-button {
+  background: rgba(214, 51, 108, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #d6336c;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.remove-favorite-button:hover {
+  background: rgba(214, 51, 108, 0.4);
+  transform: rotate(90deg) scale(1.1);
 }
 
